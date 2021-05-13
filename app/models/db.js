@@ -20,3 +20,5 @@ const connection = mysql.createConnection({
   password: dbConfig.PASSWORD,
   database: dbConfig.DATABASE
 });*/
+
+module.exports = pool;

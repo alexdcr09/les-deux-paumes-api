@@ -10,7 +10,7 @@ const Video = function(video) {
 };
 
 Video.create = (newVideo, result) => {
-  sql.query("INSERT INTO videos SET ?", newVideo, (err, res) => {
+  pool.query("INSERT INTO videos SET ?", newVideo, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -23,7 +23,7 @@ Video.create = (newVideo, result) => {
 };
 
 Video.findById = (videoId, result) => {
-  sql.query(`SELECT * FROM videos WHERE id = ${videoId}`, (err, res) => {
+  pool.query(`SELECT * FROM videos WHERE id = ${videoId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -43,7 +43,7 @@ Video.findById = (videoId, result) => {
 
 // liaison à faire entre Id + name pour avoir le retour de l'bjet catégorie
 Video.findByCategory = (categories_id, result) => { 
-  sql.query(`SELECT * FROM categories INNER JOIN videos on categories.id = videos.categories_id WHERE categories_id = ${categories_id}`, (err, res) => {
+  pool.query(`SELECT * FROM categories INNER JOIN videos on categories.id = videos.categories_id WHERE categories_id = ${categories_id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -62,7 +62,7 @@ Video.findByCategory = (categories_id, result) => {
 };
 
 Video.findBySubCategory = (sous_categories_id, result) => { 
-  sql.query(`SELECT * FROM sous_categories INNER JOIN videos on sous_categories.id = videos.sous_categories_id WHERE sous_categories_id = ${sous_categories_id}`, (err, res) => {
+  pool.query(`SELECT * FROM sous_categories INNER JOIN videos on sous_categories.id = videos.sous_categories_id WHERE sous_categories_id = ${sous_categories_id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -81,7 +81,7 @@ Video.findBySubCategory = (sous_categories_id, result) => {
 };
 
 Video.getAll = result => {
-  sql.query("SELECT * FROM videos", (err, res) => {
+  pool.query("SELECT * FROM videos", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -94,7 +94,7 @@ Video.getAll = result => {
 };
 
 Video.remove = (id, result) => {
-  sql.query("DELETE FROM videos WHERE id = ?", id, (err, res) => {
+  pool.query("DELETE FROM videos WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
