@@ -3,8 +3,12 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const cors = require('cors');
 const app = express();
-const path = require("path");
 app.use(cors())
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+const port = process.env.PORT || 3000;
 
 // parse requests of content-type: application/json
 app.use(bodyParser.json());
@@ -27,6 +31,6 @@ app.get("/video/:id", (req, res) => {
 
 require("./app/routes/video.routes.js")(app);
 // set port, listen for requests
-app.listen(3000, () => {
-  console.log("Server is running on port 3000.");
+app.listen(port, function () {
+  console.log("Server is running on port");
 });
