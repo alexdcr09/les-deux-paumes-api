@@ -4,10 +4,10 @@ const { Pool } = require("pg");
 
 // Create a connection to the databse PostgreSQL
 const pool = new Pool({
-  user: "vfhiejej",
-  host: "xxxxx.elephantsql.com",
-  database: "mystere",
-  password: "KJiaKXNf-bymqnW9pkszYGzK2ntoDbJc ",
+  user: "jfvrqdieasbluo",
+  host: "ec2-54-195-76-73.eu-west-1.compute.amazonaws.com",
+  database: "dbqc4m87m63k49",
+  password: "c728998bc4ffa16c18f5007aaf94d52b35d83beda2b59cd81a7b4afb60991cde@",
   port: 5432
 });
 console.log("Connexion réussie à la base de données");
@@ -20,11 +20,3 @@ const connection = mysql.createConnection({
   password: dbConfig.PASSWORD,
   database: dbConfig.DATABASE
 });*/
-
-// open the MySQL connection
-connection.connect(error => {
-  if (error) throw error;
-  console.log("Successfully connected to the database.");
-});
-
-module.exports = connection;
