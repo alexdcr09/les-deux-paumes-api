@@ -1,6 +1,6 @@
 module.exports = app => {
     const videos = require("../controllers/video.controller.js");
-  
+
     // Create a new videos
     app.post("/videos", videos.create);
   

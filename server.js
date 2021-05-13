@@ -17,6 +17,11 @@ const readVideo = () => JSON.parse(fs.readFileSync("./video.json").toString()).m
   ...video,}));
 
 // simple route
+app.get("/", (req, res) => {
+  res.json(readVideo());
+});
+
+  // simple route
 app.get("/video", (req, res) => {
     res.json(readVideo());
   });
