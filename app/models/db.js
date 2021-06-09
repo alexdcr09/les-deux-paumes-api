@@ -14,3 +14,5 @@ console.log("Connexion réussie à la base de données");
 pool.connect();
 
 module.exports = pool;
+
+// mysql --host=us-cdbr-east-04.cleardb.com --user=baf67f81831803 --password=6e8d7d3c --reconnect heroku_5aee93ca8d7911e
