@@ -3,9 +3,9 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const cors = require('cors');
 const app = express();
-const router = require('.routes/video.routes')
+// const router = require('.routes/video.routes')
 app.use(cors())
-app.use(router)
+// app.use(router)
 
 const port = process.env.PORT || 3000;
 
