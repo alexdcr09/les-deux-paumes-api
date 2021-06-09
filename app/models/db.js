@@ -3,22 +3,14 @@ const { Pool } = require("pg");
 
 // Create a connection to the databse PostgreSQL
 const pool = new Pool({
-  user: "jfvrqdieasbluo",
-  host: "ec2-54-195-76-73.eu-west-1.compute.amazonaws.com",
-  database: "dbqc4m87m63k49",
-  password: "c728998bc4ffa16c18f5007aaf94d52b35d83beda2b59cd81a7b4afb60991cde",
+  user: "baf67f81831803",
+  host: "us-cdbr-east-04.cleardb.com",
+  database: "heroku_5aee93ca8d7911e",
+  password: "6e8d7d3c",
   port: 5432,
   ssl: { rejectUnauthorized: false }
 });
 console.log("Connexion réussie à la base de données");
 pool.connect();
-/*
-// Create a connection to the database
-const connection = mysql.createConnection({
-  host: dbConfig.HOST,
-  user: dbConfig.USER,
-  password: dbConfig.PASSWORD,
-  database: dbConfig.DATABASE
-});*/
 
 module.exports = pool;
