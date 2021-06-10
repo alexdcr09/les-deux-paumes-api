@@ -4,11 +4,6 @@ const fs = require("fs");
 const cors = require('cors');
 const app = express();
 app.use(cors())
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
-const port = process.env.PORT || 3000;
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -19,3 +14,7 @@ app.listen(PORT, () => {
 app.use(bodyParser.json());
 
 require("./app/routes/video.routes.js")(app);
+
+// Server qui crash / Accent à régler...
+// heroku restart
+// heroku run node server.js
